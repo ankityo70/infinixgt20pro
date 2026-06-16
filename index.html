@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#050608">
   <title>Infinix GT 20 Pro | The Cyber Mecha Gaming Beast</title>
   <meta name="description" content="Experience the mecha gaming revolution. MediaTek Dimensity 8200 Ultimate 5G, 144Hz AMOLED Display, and Dedicated Gaming Display Chip.">
   
@@ -59,6 +61,28 @@
       </ul>
     </nav>
     <button class="header-cta" onclick="window.location.href='#spec-grid'">DEPLOY SPECS</button>
+    
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#hero">Overview</a></li>
+        <li><a href="#mecha-showcase">Mecha Loop</a></li>
+        <li><a href="#performance">Powerhouse</a></li>
+        <li><a href="#cooling">VC Cooling</a></li>
+        <li><a href="#specs-visual">Display</a></li>
+        <li><a href="#spec-grid">Specs</a></li>
+        <li><a href="#" class="mobile-cta" onclick="window.location.href='#spec-grid'">DEPLOY SPECS</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Hero Section -->
@@ -493,6 +517,133 @@
     </div>
   </footer>
 
+  <!-- Mobile Menu Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const header = document.querySelector('header');
+      
+      if (mobileMenuToggle && mobileNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('active');
+          mobileMenuToggle.classList.toggle('active');
+          
+          // Toggle icon
+          const icon = mobileMenuToggle.querySelector('svg');
+          if (mobileNav.classList.contains('active')) {
+            icon.innerHTML = '<path d="M6 18L18 6M6 6l12 12"></path>';
+          } else {
+            icon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+          }
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            
+            const icon = mobileMenuToggle.querySelector('svg');
+            icon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+          });
+        });
+        
+        // Close mobile menu when scrolling
+        window.addEventListener('scroll', () => {
+          if (mobileNav.classList.contains('active')) {
+            mobileNav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            
+            const icon = mobileMenuToggle.querySelector('svg');
+            icon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+          }
+        });
+        
+        // Add mobile menu toggle styles
+        const style = document.createElement('style');
+        style.textContent = `
+          .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+          }
+          
+          @media (max-width: 768px) {
+            .mobile-menu-toggle {
+              display: block;
+            }
+            
+            nav ul {
+              display: none;
+            }
+            
+            .header-cta {
+              display: none;
+            }
+            
+            .mobile-nav {
+              position: fixed;
+              top: 80px;
+              left: 0;
+              width: 100%;
+              background: var(--bg-secondary);
+              border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+              transform: translateY(-100%);
+              transition: transform 0.3s ease;
+              z-index: 1000;
+              padding: 20px 0;
+              box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            }
+            
+            .mobile-nav.active {
+              transform: translateY(0);
+            }
+            
+            .mobile-nav ul {
+              flex-direction: column;
+              padding: 0 20px;
+            }
+            
+            .mobile-nav li {
+              margin: 10px 0;
+            }
+            
+            .mobile-nav a {
+              padding: 12px 16px;
+              display: block;
+              border-radius: 4px;
+              transition: all 0.3s ease;
+            }
+            
+            .mobile-nav a:hover {
+              background: rgba(0, 240, 255, 0.05);
+              color: var(--accent-cyan);
+              padding-left: 20px;
+            }
+            
+            .mobile-nav .mobile-cta {
+              background: var(--accent-cyan);
+              color: var(--bg-primary);
+              text-align: center;
+              margin-top: 10px;
+              clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+            }
+            
+            .mobile-menu-toggle.active svg {
+              transform: rotate(90deg);
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    });
+  </script>
+  
   <!-- Link custom logic -->
   <script src="main.js"></script>
 </body>

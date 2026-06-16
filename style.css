@@ -43,6 +43,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--accent-cyan) var(--bg-secondary);
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -51,6 +52,37 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile optimizations */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  
+  /* Reduce animations on mobile */
+  *, *::before, *::after {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* Make interactive elements larger */
+  .btn-primary, .btn-secondary, .mode-btn, .hz-btn, .color-dot, .header-cta {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 24px;
+  }
+  
+  /* Improve touch targets */
+  .speed-slider, #cooling-temp-slider {
+    height: 44px;
+  }
+  
+  /* Reduce visual effects */
+  .hero-visual, .mecha-visualizer, .cooling-showcase {
+    animation: none !important;
+  }
 }
 
 /* Custom Scrollbar */
@@ -1386,6 +1418,158 @@ footer {
   
   .telemetry-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  nav, .header-cta {
+    display: none;
+  }
+  
+  .hero-title {
+    font-size: 44px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .hud-data-panel {
+    bottom: 5%;
+    right: -10px;
+    font-size: 9px;
+    padding: 8px 12px;
+    gap: 4px;
+  }
+  
+  /* Mobile-specific improvements */
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+  
+  .control-group {
+    margin-bottom: 20px;
+  }
+  
+  .color-dots {
+    justify-content: center;
+  }
+  
+  .led-modes {
+    grid-template-columns: 1fr;
+  }
+  
+  .chip-spec-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .cool-feature-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .cooling-showcase {
+    height: 350px;
+  }
+  
+  .phone-blueprint-svg {
+    max-width: 280px;
+  }
+  
+  .customizer-box {
+    padding: 20px;
+  }
+  
+  .section-title-wrap {
+    margin-bottom: 40px;
+  }
+  
+  .hero-visual {
+    height: 350px;
+  }
+  
+  .hologram-grid, .hologram-ring-outer, .hologram-ring-inner {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .phone-wrapper {
+    width: 240px;
+  }
+  
+  .display-mock-container {
+    height: 250px;
+  }
+  
+  .audio-visualizer-wave {
+    height: 40px;
+  }
+  
+  .wave-bar {
+    width: 2px;
+  }
+  
+  .wave-bar.active {
+    animation: waveMotion 1.2s infinite ease-in-out alternate;
+  }
+  
+  @keyframes waveMotion {
+    0% { height: 5px; }
+    100% { height: 30px; }
+  }
+  
+  /* Improve touch interactions */
+  .color-dot {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .mode-btn {
+    padding: 14px;
+    font-size: 14px;
+  }
+  
+  .speed-slider, #cooling-temp-slider {
+    height: 40px;
+  }
+  
+  .speed-slider::-webkit-slider-thumb, #cooling-temp-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Hide desktop-only elements */
+  .desktop-only {
+    display: none;
+  }
+  
+  /* Optimize for mobile viewport */
+  section {
+    padding: 60px 5%;
+    min-height: auto;
+  }
+  
+  .hero-visual {
+    margin-top: 40px;
   }
 }
 
