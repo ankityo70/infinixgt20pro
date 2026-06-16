@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinix GT 20 Pro | The Cyber Mecha Gaming Beast</title>
+  <meta name="description" content="Experience the mecha gaming revolution. MediaTek Dimensity 8200 Ultimate 5G, 144Hz AMOLED Display, and Dedicated Gaming Display Chip.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- External JS (GSAP and Lucide) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Background Overlays -->
+  <div class="cyber-grid"></div>
+
+  <!-- Boot Loader Screen -->
+  <div id="boot-screen">
+    <div class="boot-terminal">
+      <div class="terminal-header">
+        <span>ANTIGRAVITY_LOADER_V3.9</span>
+        <span>SYSTEM STATUS: OK</span>
+      </div>
+      <div class="terminal-logs" id="terminal-logs">
+        <!-- JS inserts lines here -->
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-pct" id="progress-pct">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+        <polyline points="2 17 12 22 22 17"></polyline>
+        <polyline points="2 12 12 17 22 12"></polyline>
+      </svg>
+      INFINIX<span>GT</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#hero">Overview</a></li>
+        <li><a href="#mecha-showcase">Mecha Loop</a></li>
+        <li><a href="#performance">Powerhouse</a></li>
+        <li><a href="#cooling">VC Cooling</a></li>
+        <li><a href="#specs-visual">Display</a></li>
+        <li><a href="#spec-grid">Specs</a></li>
+      </ul>
+    </nav>
+    <button class="header-cta" onclick="window.location.href='#spec-grid'">DEPLOY SPECS</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-info">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span class="hero-badge-text">GT 20 PRO ACTIVE DEPLOYMENT</span>
+      </div>
+      <h1 class="hero-title">
+        THE MECHA<br>
+        <span class="glow-text">REVOLUTION</span>
+      </h1>
+      <p class="hero-desc">
+        Unleash ultimate gaming dominance with the Cyber Mecha design. Powered by a MediaTek Dimensity 8200 Ultimate 5G processor and a Dedicated Gaming Display Chip. Designed to conquer.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="window.location.href='#mecha-showcase'">LAUNCH CUSTOMIZER</button>
+        <button class="btn-secondary" onclick="window.location.href='#performance'">BENCHMARK POWER</button>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="hologram-grid">
+        <div class="hologram-ring-outer"></div>
+        <div class="hologram-ring-inner"></div>
+      </div>
+      <div class="hologram-pedestal"></div>
+      <div class="phone-wrapper">
+        <img src="assets/phone.png" alt="Infinix GT 20 Pro" class="showcase-phone">
+        <!-- HUD Overlay Panel -->
+        <div class="hud-data-panel">
+          <div class="hud-line">
+            <span>MODEL:</span>
+            <span>GT_20_PRO_5G</span>
+          </div>
+          <div class="hud-line">
+            <span>DESIGN:</span>
+            <span>CYBER_MECHA</span>
+          </div>
+          <div class="hud-line">
+            <span>LED LOOP:</span>
+            <span>CUSTOM_RGB</span>
+          </div>
+          <div class="hud-line-dec"></div>
+          <div class="hud-line">
+            <span>DISPLAY:</span>
+            <span>144Hz AMOLED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mecha Showcase & Customizer Section -->
+  <section id="mecha-showcase">
+    <div class="mecha-visualizer">
+      <!-- Phone Blueprint SVG Drawing -->
+      <svg class="phone-blueprint-svg" viewBox="0 0 320 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Phone Outer Frame -->
+        <rect x="10" y="10" width="300" height="600" rx="28" fill="#0b0e14" stroke="#ffffff" stroke-opacity="0.1" stroke-width="4"/>
+        <!-- Inner Glass Panel -->
+        <rect x="14" y="14" width="292" height="592" rx="24" fill="#06080c"/>
+        
+        <!-- Cyber Mecha Lines Background -->
+        <path d="M40 80 L280 80 M40 180 L180 180 M280 250 L280 450 M40 380 L140 380 M180 500 L280 500" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2" stroke-dasharray="4 4"/>
+        
+        <!-- Diagonal Accent Lines -->
+        <path d="M40 280 L90 330 M280 150 L230 200 M90 480 L40 530" stroke="var(--accent-cyan)" stroke-opacity="0.2" stroke-width="1.5"/>
+
+        <!-- Camera Bump Plate -->
+        <rect x="25" y="25" width="130" height="145" rx="12" fill="#0e121a" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+        <rect x="35" y="35" width="110" height="125" rx="8" fill="#080a0f"/>
+        
+        <!-- Camera Lenses -->
+        <!-- Top Left Lens (108MP Main) -->
+        <circle cx="65" cy="65" r="18" fill="#141923" stroke="#ffffff" stroke-opacity="0.1" stroke-width="2"/>
+        <circle cx="65" cy="65" r="10" fill="#000000"/>
+        <circle cx="67" cy="63" r="3" fill="#ffffff" fill-opacity="0.3"/>
+        <!-- Top Right Lens -->
+        <circle cx="115" cy="65" r="14" fill="#141923" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5"/>
+        <circle cx="115" cy="65" r="7" fill="#000000"/>
+        <!-- Bottom Left Lens -->
+        <circle cx="65" cy="115" r="14" fill="#141923" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5"/>
+        <circle cx="65" cy="115" r="7" fill="#000000"/>
+        <!-- Ring Flash (Bottom Right) -->
+        <circle cx="115" cy="115" r="12" stroke="#e2e8f0" stroke-width="3" fill="none"/>
+        
+        <!-- Mecha Loop LED (The central feature) -->
+        <circle cx="210" cy="330" r="75" stroke="#ffffff" stroke-opacity="0.03" stroke-width="12" fill="none"/>
+        <path id="blueprint-mecha-loop" d="M 210, 255 A 75 75 0 1 1 145, 368" stroke="var(--mecha-loop-color)" stroke-width="10" stroke-linecap="round" fill="none"/>
+        
+        <!-- Central circular mecha plate -->
+        <circle cx="210" cy="330" r="50" fill="#0d1118" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2"/>
+        <path d="M 195,330 L 225,330 M 210,315 L 210,345" stroke="#ffffff" stroke-opacity="0.1" stroke-width="2"/>
+        
+        <!-- Brand text -->
+        <text x="35" y="560" fill="rgba(255,255,255,0.15)" font-family="Orbitron" font-size="16" font-weight="800" letter-spacing="3">INFINIX GT</text>
+        <text x="35" y="575" fill="rgba(255,255,255,0.08)" font-family="Share Tech Mono" font-size="9" letter-spacing="1">DESIGNED FOR GAMING</text>
+      </svg>
+    </div>
+
+    <div class="customizer-box">
+      <div class="section-title-wrap">
+        <span class="section-tag">Mecha Loop LED Interface</span>
+        <h2 class="section-title">CYBER MECHA<br><span>LIGHT SYSTEM</span></h2>
+      </div>
+      <p class="hero-desc" style="margin-bottom: 30px;">
+        Customize the rear LED panel light pulses for incoming calls, gaming benchmarks, notifications, and charging states. Synchronize color schemes to match your setup.
+      </p>
+      
+      <!-- Color Picker -->
+      <div class="control-group">
+        <div class="control-label">
+          <span>SELECT HUE</span>
+        </div>
+        <div class="color-dots">
+          <div class="color-dot active" data-color="#00f0ff" style="--dot-color: #00f0ff;"></div>
+          <div class="color-dot" data-color="#ff5e00" style="--dot-color: #ff5e00;"></div>
+          <div class="color-dot" data-color="#39ff14" style="--dot-color: #39ff14;"></div>
+          <div class="color-dot" data-color="#ff0077" style="--dot-color: #ff0077;"></div>
+        </div>
+      </div>
+
+      <!-- Mode Selector -->
+      <div class="control-group">
+        <div class="control-label">
+          <span>PULSE EMULATION MODE</span>
+        </div>
+        <div class="led-modes">
+          <button class="mode-btn active" data-mode="pulse">Pulsing</button>
+          <button class="mode-btn" data-mode="breathe">Breathing</button>
+          <button class="mode-btn" data-mode="cycle">Dynamic</button>
+        </div>
+      </div>
+
+      <!-- Speed Control -->
+      <div class="control-group" style="margin-bottom: 0;">
+        <div class="control-label">
+          <span>PULSE SPEED</span>
+          <span id="speed-val">1x</span>
+        </div>
+        <input type="range" class="speed-slider" id="led-speed" min="0.5" max="3" step="0.1" value="1">
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Dual Chip Section -->
+  <section id="performance">
+    <div class="perf-info">
+      <div class="section-title-wrap">
+        <span class="section-tag">Telemetry Benchmark</span>
+        <h2 class="section-title">DUAL CHIP<br><span>DOMINANCE MATRIX</span></h2>
+      </div>
+      <p class="hero-desc">
+        Equipped with the 4nm MediaTek Dimensity 8200 Ultimate 5G processor, working in perfect parallel sync with a dedicated Pixelworks X5 Turbo Gaming Display Chip. Achieve desktop-grade framerate upscaling and lag-free frame rendering.
+      </p>
+      
+      <!-- Chipset Visualizer -->
+      <div class="chipset-container">
+        <img src="assets/chipset.png" alt="Infinix GT 20 Pro Chipset Co-Processor Setup" class="chipset-image">
+      </div>
+
+      <div class="chip-spec-row">
+        <div class="chip-spec-card">
+          <h3>DIMENSITY 8200 ULTIMATE</h3>
+          <p>4nm Architecture, Octa-Core hyper-threaded processing up to 3.1 GHz. Delivering peak power with optimized energy draw.</p>
+        </div>
+        <div class="chip-spec-card">
+          <h3>PIXELWORKS X5 TURBO</h3>
+          <p>Dedicated co-processor upscaling standard 60fps console gameplay to an ultra-fluid 120fps using advanced motion interpolation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive FPS comparison slider -->
+    <div class="gaming-visualizer">
+      <div class="compare-container">
+        <!-- 60FPS / Choppy slider overlay -->
+        <div class="fps-side side-60">
+          <span class="fps-label">60 FPS STANDARD</span>
+          <div class="game-canvas-mock">
+            <div class="game-bg-grid"></div>
+            <div class="game-character" id="char-60" style="filter: blur(2px); opacity: 0.85;"></div>
+          </div>
+        </div>
+        
+        <!-- 120FPS smooth background -->
+        <div class="fps-side side-120">
+          <span class="fps-label">120 FPS DUAL-CHIP</span>
+          <div class="game-canvas-mock">
+            <div class="game-bg-grid"></div>
+            <div class="game-character" id="char-120"></div>
+          </div>
+        </div>
+
+        <!-- Interactive slider handle -->
+        <div class="slider-handle">
+          <div class="handle-button">
+            <i data-lucide="chevrons-left-right"></i>
+          </div>
+        </div>
+        
+        <div class="slider-instruct">DRAG SLIDER TO ENGAGE PIXELWORKS DUAL-CHIP BOOST</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VC Cooling System Section -->
+  <section id="cooling">
+    <div class="cooling-showcase">
+      <!-- SVG Blueprints of Internal Vapor Chamber -->
+      <svg class="phone-skeleton" viewBox="0 0 280 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer casing translucent -->
+        <rect x="5" y="5" width="270" height="570" rx="24" fill="#0b0e14" fill-opacity="0.3" stroke="rgba(0, 240, 255, 0.15)" stroke-width="2"/>
+        
+        <!-- Vapor Chamber outline -->
+        <rect x="70" y="140" width="140" height="280" rx="12" fill="#090d14" stroke="var(--accent-cyan)" stroke-width="2" stroke-dasharray="2 2" />
+        
+        <!-- Heat pipes -->
+        <path d="M 140,80 L 140,140 M 100,420 L 100,500 M 180,420 L 180,500" stroke="rgba(255,94,0,0.4)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M 140,140 L 140,420" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      
+      <!-- Particle effects simulation container -->
+      <div class="cooling-overlay">
+        <div class="cooling-vapor-chamber">
+          <div class="heat-particles">
+            <div class="heat-particle" style="--start-x: 20%; --end-x: 80%; animation-delay: 0s;"></div>
+            <div class="heat-particle" style="--start-x: 50%; --end-x: 30%; animation-delay: 0.4s;"></div>
+            <div class="heat-particle" style="--start-x: 80%; --end-x: 40%; animation-delay: 0.8s;"></div>
+            <div class="heat-particle" style="--start-x: 30%; --end-x: 70%; animation-delay: 1.2s;"></div>
+            <div class="heat-particle" style="--start-x: 70%; --end-x: 20%; animation-delay: 1.6s;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cool-features">
+      <div class="section-title-wrap">
+        <span class="section-tag">Thermal Matrix Telemetry</span>
+        <h2 class="section-title">VC COOLING SYSTEM<br><span>STABLE THERMAL SHIELD</span></h2>
+      </div>
+      <p class="hero-desc" style="margin-bottom: 20px;">
+        Designed to handle heavy sustained workloads. The enlarged Vapor Chamber VC Liquid Cooling system covers key motherboard heat sources, improving thermal conductivity by up to 100%.
+      </p>
+      
+      <div class="cool-feature-row">
+        <div class="cool-icon-box">
+          <i data-lucide="thermometer-snowflake"></i>
+        </div>
+        <div class="cool-feature-text">
+          <h3>Vapor Chamber Tech</h3>
+          <p>Large cooling surface area directly channels heat away from the processor cores.</p>
+        </div>
+      </div>
+
+      <div class="cool-feature-row">
+        <div class="cool-icon-box">
+          <i data-lucide="cpu"></i>
+        </div>
+        <div class="cool-feature-text">
+          <h3>Bypass Charging 2.0</h3>
+          <p>Feeds power directly to the motherboard during heavy gaming, bypassing the battery completely to reduce temperature build-up by 7°C.</p>
+        </div>
+      </div>
+
+      <!-- Interactive Temperature Slider -->
+      <div class="control-group" style="margin-top: 30px; background: rgba(5,6,8,0.5); padding: 20px; border-radius: 4px; border: 1px solid rgba(0,240,255,0.15);">
+        <div class="control-label">
+          <span>CHIPSET TEMPERATURE MONITOR</span>
+          <span id="temp-val" style="color: var(--accent-orange); font-family: var(--font-mono); font-weight: 800;">85°C</span>
+        </div>
+        <input type="range" class="speed-slider" id="cooling-temp-slider" min="35" max="90" value="85" style="width: 100%;">
+        <div style="font-family: var(--font-mono); font-size: 10px; color: var(--accent-orange); margin-top: 10px; text-align: center; letter-spacing: 1px; font-weight: 600;" id="temp-status">WARNING: THERMAL THROTTLING ACTIVE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Display and Audio specs combined -->
+  <section id="specs-visual">
+    <div class="display-hud">
+      <div class="section-title-wrap">
+        <span class="section-tag">Display Output Calibration</span>
+        <h2 class="section-title">144Hz AMOLED<br><span>ULTRA-BEZEL DISPLAY</span></h2>
+      </div>
+      <p class="hero-desc">
+        6.78-inch FHD+ LTPS AMOLED with 1300 nits peak brightness. Draw inside the screen to test neon trails at different refresh rates.
+      </p>
+
+      <!-- Simulated display screen showing frequency difference -->
+      <div class="display-mock-container">
+        <div class="hz-line-container">
+          <div class="moving-indicator" id="moving-dot"></div>
+        </div>
+        <canvas id="hz-draw-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; z-index: 3;"></canvas>
+      </div>
+
+      <div class="display-switch-container">
+        <button class="hz-btn" data-hz="30">30Hz</button>
+        <button class="hz-btn" data-hz="60">60Hz</button>
+        <button class="hz-btn active" data-hz="144">144Hz Active</button>
+      </div>
+    </div>
+
+    <!-- Dual Speakers Audio -->
+    <div class="cool-features">
+      <div class="section-title-wrap">
+        <span class="section-tag">JBL Acoustics</span>
+        <h2 class="section-title">DUAL SPEAKERS<br><span>SOUND BY JBL</span></h2>
+      </div>
+      <p class="hero-desc">
+        Cinematic gaming environments require flawless sound. The symmetrical dual speaker architecture tuned by JBL offers detailed positional acoustics.
+      </p>
+
+      <div class="audio-section">
+        <div class="audio-header">
+          <h3><i data-lucide="volume-2" class="cool-icon"></i> AUDIO SPECTRUM ANALYSIS</h3>
+          <button class="btn-secondary" id="audio-play-btn" style="padding: 10px 20px; font-size: 11px;">
+            <i data-lucide="volume-x"></i> JBL AUDIO TEST
+          </button>
+        </div>
+        
+        <!-- Symmetrical audio waves -->
+        <div class="audio-visualizer-wave">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Specs Grid -->
+  <section id="spec-grid">
+    <div class="section-title-wrap" style="text-align: center; margin-bottom: 80px;">
+      <span class="section-tag">GT 20 PRO FULL SYSTEM READOUT</span>
+      <h2 class="section-title">TECHNICAL TELEMETRY</h2>
+    </div>
+
+    <div class="telemetry-grid">
+      <!-- Card 1 -->
+      <div class="telemetry-card">
+        <div class="telemetry-icon-box">
+          <i data-lucide="cpu" style="width: 32px; height: 32px;"></i>
+        </div>
+        <div class="telemetry-label">PROCESSOR CORE</div>
+        <div class="telemetry-value">DIMENSITY 8200</div>
+        <div class="telemetry-desc">MediaTek Ultimate 4nm 5G gaming silicon running at 3.1GHz with dedicated Mali-G610 graphics.</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="telemetry-card">
+        <div class="telemetry-icon-box">
+          <i data-lucide="monitor" style="width: 32px; height: 32px;"></i>
+        </div>
+        <div class="telemetry-label">DISPLAY PANEL</div>
+        <div class="telemetry-value">144Hz AMOLED</div>
+        <div class="telemetry-desc">6.78-inch FHD+ display, 1300 nits peak brightness, 2304Hz high frequency PWM dimming safety.</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="telemetry-card">
+        <div class="telemetry-icon-box">
+          <i data-lucide="layers" style="width: 32px; height: 32px;"></i>
+        </div>
+        <div class="telemetry-label">DISPLAY CHIP</div>
+        <div class="telemetry-value">PIXELWORKS X5</div>
+        <div class="telemetry-desc">Dedicated coprocessor, SDR-to-HDR upscaling, motion-compensated frames up to 120Hz.</div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="telemetry-card">
+        <div class="telemetry-icon-box">
+          <i data-lucide="camera" style="width: 32px; height: 32px;"></i>
+        </div>
+        <div class="telemetry-label">OPTICAL LENS</div>
+        <div class="telemetry-value">108MP OIS</div>
+        <div class="telemetry-desc">Ultra-clear rear camera system with optical stabilization, backed by dual 2MP auxiliary lenses.</div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="telemetry-card">
+        <div class="telemetry-icon-box">
+          <i data-lucide="battery-charging" style="width: 32px; height: 32px;"></i>
+        </div>
+        <div class="telemetry-label">BATTERY POWER</div>
+        <div class="telemetry-value">5000 mAh</div>
+        <div class="telemetry-desc">Safe 45W hyper-charge with Bypass Charging 2.0 to eliminate cell heat during long gaming sessions.</div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="telemetry-card">
+        <div class="telemetry-icon-box">
+          <i data-lucide="shield-check" style="width: 32px; height: 32px;"></i>
+        </div>
+        <div class="telemetry-label">OPERATING KERNEL</div>
+        <div class="telemetry-value">CLEAN XOS 14</div>
+        <div class="telemetry-desc">Android 14 base with no bloatware, 2 years core Android OS updates, and 3 years security protection patches.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <a href="#" class="footer-logo">INFINIX<span>GT</span></a>
+      <ul class="footer-links">
+        <li><a href="#hero">Overview</a></li>
+        <li><a href="#mecha-showcase">Mecha Loop</a></li>
+        <li><a href="#performance">Benchmark</a></li>
+        <li><a href="#cooling">Cooling</a></li>
+        <li><a href="#specs-visual">Display</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 INFINIX MOBILITY. ALL RIGHTS RESERVED.</span>
+      <span>CYBER MECHA DESIGN LABS</span>
+    </div>
+  </footer>
+
+  <!-- Link custom logic -->
+  <script src="main.js"></script>
+</body>
+</html>
