@@ -100,57 +100,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Touch and click event handling for color dots
   colorDots.forEach(dot => {
-    const handleClick = () => {
+    dot.addEventListener('click', () => {
       colorDots.forEach(d => d.classList.remove('active'));
       dot.classList.add('active');
       activeColor = dot.getAttribute('data-color');
       updateLEDTheme();
-    };
-    
-    dot.addEventListener('click', handleClick);
-    
-    // Add touch support
-    dot.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      handleClick();
-    }, { passive: true });
+    });
   });
 
-  // Touch and click event handling for mode buttons
   modeBtns.forEach(btn => {
-    const handleClick = () => {
+    btn.addEventListener('click', () => {
       modeBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       activeMode = btn.getAttribute('data-mode');
       updateLEDTheme();
-    };
-    
-    btn.addEventListener('click', handleClick);
-    
-    // Add touch support
-    btn.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      handleClick();
-    }, { passive: true });
+    });
   });
 
-  // Touch and input event handling for speed slider
-  if (speedSlider) {
-    const handleInput = (e) => {
-      speedMulti = parseFloat(e.target.value);
-      speedVal.textContent = `${speedMulti}x`;
-      updateLEDTheme();
-    };
-    
-    speedSlider.addEventListener('input', handleInput);
-    
-    // Add touch support for slider
-    speedSlider.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-    }, { passive: true });
-  }
+  speedSlider.addEventListener('input', (e) => {
+    speedMulti = parseFloat(e.target.value);
+    speedVal.textContent = `${speedMulti}x`;
+    updateLEDTheme();
+  });
 
   // --- 60FPS VS 120FPS DYNAMIC GRAPHICS SLIDER ---
   const compareContainer = document.querySelector('.compare-container');
@@ -173,10 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Handle Drag
-  sliderHandle.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    e.preventDefault();
-  });
+  sliderHandle.addEventListener('mousedown', () => isDragging = true);
   window.addEventListener('mouseup', () => isDragging = false);
 
   window.addEventListener('mousemove', (e) => {
@@ -185,16 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Touch support
-  sliderHandle.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    e.preventDefault();
-  }, { passive: true });
+  sliderHandle.addEventListener('touchstart', () => isDragging = true);
   window.addEventListener('touchend', () => isDragging = false);
   window.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
     setSliderPosition(e.touches[0].clientX);
-    e.preventDefault();
-  }, { passive: false });
+  });
 
   // Character movement animation variables
   let position = 0;
@@ -248,21 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let dotFrameCount = 0;
   let visualPos = 0;
 
-  // Touch and click event handling for Hz buttons
   hzBtns.forEach(btn => {
-    const handleClick = () => {
+    btn.addEventListener('click', () => {
       hzBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       activeHz = parseInt(btn.getAttribute('data-hz'));
-    };
-    
-    btn.addEventListener('click', handleClick);
-    
-    // Add touch support
-    btn.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      handleClick();
-    }, { passive: true });
+    });
   });
 
   function animateDot() {
@@ -330,16 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Touch and click event handling for audio button
-  audioBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleAudio();
-  });
-  
-  audioBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    toggleAudio();
-  }, { passive: true });
+  audioBtn.addEventListener('click', toggleAudio);
 
   // --- GSAP (minimal, no scroll-driven transforms) ---
   function initScrollAnimations() {
@@ -355,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const coolingVaporChamber = document.querySelector('.cooling-vapor-chamber');
   
   if (tempSlider) {
-    const handleInput = (e) => {
+    tempSlider.addEventListener('input', (e) => {
       const temp = parseInt(e.target.value);
       tempVal.textContent = `${temp}°C`;
       
@@ -398,14 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
         p.style.animationDuration = bubbleAnimationDuration;
         p.style.backgroundColor = color;
       });
-    };
-    
-    tempSlider.addEventListener('input', handleInput);
-    
-    // Add touch support for temperature slider
-    tempSlider.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-    }, { passive: true });
+    });
   }
 
   // --- INTERACTIVE DRAW CANVAS (144Hz DEMO) ---
@@ -424,43 +364,13 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    // Mouse and touch event handling for canvas
-    const handlePointerMove = (e) => {
-      const rect = hzCanvas.getBoundingClientRect();
-      if (e.touches) {
-        mouseX = e.touches[0].clientX - rect.left;
-        mouseY = e.touches[0].clientY - rect.top;
-      } else {
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-      }
-    };
-    
     hzCanvas.addEventListener('mouseenter', () => isMouseInCanvas = true);
     hzCanvas.addEventListener('mouseleave', () => isMouseInCanvas = false);
-    hzCanvas.addEventListener('mousemove', handlePointerMove);
-    hzCanvas.addEventListener('touchmove', (e) => {
-      handlePointerMove(e);
-      e.preventDefault();
-    }, { passive: false });
-    
-    // Touch and mouse event handling for canvas drawing
-    const handlePointerDown = (e) => {
-      if (e.touches) {
-        e.preventDefault();
-      }
-      isMouseInCanvas = true;
-      handlePointerMove(e);
-    };
-    
-    const handlePointerUp = () => {
-      isMouseInCanvas = false;
-    };
-    
-    hzCanvas.addEventListener('mousedown', handlePointerDown);
-    hzCanvas.addEventListener('mouseup', handlePointerUp);
-    hzCanvas.addEventListener('touchstart', handlePointerDown, { passive: true });
-    hzCanvas.addEventListener('touchend', handlePointerUp);
+    hzCanvas.addEventListener('mousemove', (e) => {
+      const rect = hzCanvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    });
     const handlePointerMove = (e) => {
       const rect = hzCanvas.getBoundingClientRect();
       if (e.touches) {
